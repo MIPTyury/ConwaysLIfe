@@ -4,7 +4,7 @@
 
 class Cell {
     int _size = 0;
-    bool _alive = true;
+    bool _alive = false;
     sf::RectangleShape _cell;
     sf::Vector2f _pos;
 public:
@@ -18,12 +18,12 @@ public:
     }
 
     void Revive() {
-        _cell.setFillColor(sf::Color::White);
+        _cell.setFillColor(sf::Color::Black);
         _alive = true;
     }
 
     void Kill() {
-        _cell.setFillColor(sf::Color::Black);
+        _cell.setFillColor(sf::Color::White);
         _alive = false;
     }
 

@@ -1,13 +1,12 @@
-#include "../Headers/Interaction.h"
+#include "../Headers/GameLogic.h"
 
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(800, 600), "Conway's Life");
     window.setFramerateLimit(144);
-
+    window.setKeyRepeatEnabled(false);
 
     Field field(60, 40);
-//    field.ReviveAll();
 
     while (window.isOpen())
     {
@@ -28,10 +27,10 @@ int main()
         }
 
         window.clear();
-        FullFieldReviveTrigger(field, window);
+        InteractionWrapper(field, window);
+        GameLogicWrapper(field);
         field.DrawField(window);
         window.display();
-        _sleep(75);
     }
 
     return 0;

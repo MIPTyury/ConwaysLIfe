@@ -8,7 +8,7 @@ FETCHCONTENT_MAKEAVAILABLE(SFML)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(ConwaysLIfe "Source Files/main.cpp" Headers/Cells.h Headers/Field.h Headers/Interaction.h)
+add_executable(ConwaysLIfe "Source Files/main.cpp" Headers/Cells.h Headers/Field.h Headers/Interaction.h Headers/GameLogic.h)
 
 target_link_libraries(ConwaysLIfe sfml-system sfml-window sfml-graphics sfml-audio sfml-network)
 

@@ -34,5 +34,21 @@ void FullFieldReviveTrigger (Field &field, sf::RenderWindow &window) {
     }
 }
 
+void ClearBoard (Field &field) {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
+        field.KillAll();
+    }
+}
 
+void QuitGame (sf::RenderWindow &window) {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {
+        window.close();
+    }
+}
+
+void InteractionWrapper (Field &field, sf::RenderWindow &window) {
+    QuitGame(window);
+    ClearBoard(field);
+    FullFieldReviveTrigger(field, window);
+}
 
