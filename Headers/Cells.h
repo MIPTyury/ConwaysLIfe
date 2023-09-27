@@ -1,4 +1,5 @@
 #pragma once
+
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
@@ -36,7 +37,7 @@ public:
         return _pos;
     }
 
-    bool aliveFlag () {
+    bool aliveFlag() {
         return _alive;
     }
 };

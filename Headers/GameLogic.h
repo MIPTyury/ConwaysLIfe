@@ -1,24 +1,24 @@
 #include "Interaction.h"
 
 bool WillBeAlive(Field field, int i, int j) {
-    int deadCount = 0;
+    int aliveCount = 0;
 
     Cell cell = field.FieldArray()[i][j];
 
-    if (field.FieldArray()[i + 1][j].aliveFlag()) { deadCount++; }
-    if (field.FieldArray()[i][j + 1].aliveFlag()) { deadCount++; }
-    if (field.FieldArray()[i - 1][j].aliveFlag()) { deadCount++; }
-    if (field.FieldArray()[i][j - 1].aliveFlag()) { deadCount++; }
+    if (field.FieldArray()[i + 1][j].aliveFlag()) { aliveCount++; }
+    if (field.FieldArray()[i][j + 1].aliveFlag()) { aliveCount++; }
+    if (field.FieldArray()[i - 1][j].aliveFlag()) { aliveCount++; }
+    if (field.FieldArray()[i][j - 1].aliveFlag()) { aliveCount++; }
 
-    if (field.FieldArray()[i + 1][j + 1].aliveFlag()) { deadCount++; }
-    if (field.FieldArray()[i + 1][j - 1].aliveFlag()) { deadCount++; }
-    if (field.FieldArray()[i - 1][j + 1].aliveFlag()) { deadCount++; }
-    if (field.FieldArray()[i - 1][j - 1].aliveFlag()) { deadCount++; }
+    if (field.FieldArray()[i + 1][j + 1].aliveFlag()) { aliveCount++; }
+    if (field.FieldArray()[i + 1][j - 1].aliveFlag()) { aliveCount++; }
+    if (field.FieldArray()[i - 1][j + 1].aliveFlag()) { aliveCount++; }
+    if (field.FieldArray()[i - 1][j - 1].aliveFlag()) { aliveCount++; }
 
-    if (deadCount == 3 && !cell.aliveFlag()) {
+    if (aliveCount == 3 && !cell.aliveFlag()) {
         return true;
     }
-    if ((deadCount == 2 || deadCount == 3) && cell.aliveFlag()) {
+    if ((aliveCount == 2 || aliveCount == 3) && cell.aliveFlag()) {
         return true;
     }
     return false;
@@ -40,8 +40,9 @@ void NeighborhoodAnalysis(Field &field) {
     tmp.DeleteField();
 }
 
-void GameLogicWrapper (Field &field) {
+void GameLogicWrapper(Field &field) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) {
-            NeighborhoodAnalysis(field);
+        NeighborhoodAnalysis(field);
+        started = true;
     }
 }

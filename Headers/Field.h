@@ -34,9 +34,9 @@ public:
 
     void DeleteField() {
         for (int i = 0; i < _xSize; i++) {
-            delete [] _field[i];
+            delete[] _field[i];
         }
-        delete [] _field;
+        delete[] _field;
     }
 
     int GetXSize() { return _xSize; }
@@ -82,7 +82,7 @@ public:
         }
     }
 
-    Cell** FieldArray () {
+    Cell **FieldArray() {
         return _field;
     }
 
