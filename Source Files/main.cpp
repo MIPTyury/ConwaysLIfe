@@ -1,17 +1,13 @@
-#include "../Headers/Field.h"
+#include "../Headers/Interaction.h"
 
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(800, 600), "Conway's Life");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
+    window.setFramerateLimit(144);
 
-    Cell cell;
-    cell.Revive();
-    cell.SetPos(window, sf::Vector2f(window.getSize().x/2, window.getSize().y/2));
 
     Field field(60, 40);
-    field.ReviveAll();
+//    field.ReviveAll();
 
     while (window.isOpen())
     {
@@ -27,13 +23,15 @@ int main()
                 sf::FloatRect visibleArea(0, 0, event.size.width, event.size.height);
                 window.setView(sf::View(visibleArea));
             }
+
+
         }
 
         window.clear();
-//        cell.SetPos(window, sf::Vector2f(window.getSize().x/2, window.getSize().y/2));
-//        cell.DrawCell(window);
+        FullFieldReviveTrigger(field, window);
         field.DrawField(window);
         window.display();
+        _sleep(75);
     }
 
     return 0;

@@ -50,5 +50,11 @@ public:
             }
         }
     }
+
+    Cell** FieldArray () {
+        return _field;
+    }
+
+
 };
 
