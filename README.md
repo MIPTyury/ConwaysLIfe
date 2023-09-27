@@ -11,4 +11,4 @@ E - edit map (after ENTER)
 
 R - clear map and edit map
 
-Left Mouse Button - select or deselect cell
+Mouse Left Button - select or deselect cell
