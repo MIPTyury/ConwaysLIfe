@@ -48,12 +48,6 @@ void QuitGame(sf::RenderWindow &window) {
     }
 }
 
-void InteractionWrapper(Field &field, sf::RenderWindow &window) {
-    QuitGame(window);
-    ClearBoard(field);
-    FullFieldReviveTrigger(field, window);
-}
-
 bool Started() {
     return started;
 }
@@ -69,4 +63,14 @@ void Edit(Field &field) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)) {
         started = false;
     }
+}
+
+void InteractionWrapper(Field &field, sf::RenderWindow &window) {
+    if (!Started()) {
+        FullFieldReviveTrigger(field, window);
+    }
+    QuitGame(window);
+    ClearBoard(field);
+    Edit(field);
+    Restart(field);
 }

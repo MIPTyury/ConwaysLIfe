@@ -3,8 +3,7 @@
 int main() {
     sf::RenderWindow window(sf::VideoMode(800, 600), "Conway's Life");
     window.setFramerateLimit(144);
-    window.setKeyRepeatEnabled(false);
-    Field field(60, 40);
+    Field field(10, 10);
 
     while (window.isOpen()) {
         sf::Event event;
@@ -22,11 +21,7 @@ int main() {
         }
 
         window.clear();
-        if (!Started()) {
-            InteractionWrapper(field, window);
-        }
-        Edit(field);
-        Restart(field);
+        InteractionWrapper(field, window);
         GameLogicWrapper(field);
         field.DrawField(window);
         window.display();
