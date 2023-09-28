@@ -12,3 +12,5 @@ E - edit map (after ENTER)
 R - clear map and edit map
 
 Mouse Left Button - select or deselect cell
+
+Map 60x40 causes ~13 sec/iteration
